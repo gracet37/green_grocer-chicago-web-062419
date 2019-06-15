@@ -1,6 +1,9 @@
 def consolidate_cart(cart)
   # code here
-end
+  cart.group_by(&:itself)
+  .map {|key,value| value.merge(count : value.length)}
+end 
+
 
 def apply_coupons(cart, coupons)
   # code here
